@@ -68,7 +68,7 @@ def model_predict(model_loc, test_directory = 'images',):
     y_pred_labels = np.argmax(model_predictions, axis = 1)
 
     # Map predictions to the correct labels
-    with open('classes.json', "r") as read_file:        
+    with open('/content/drive/MyDrive/CPEN391_team_penguin/classes.json', "r") as read_file:        
         labels = json.load(read_file)
     print(labels)    
     print(y_pred_labels)

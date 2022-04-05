@@ -20,6 +20,8 @@ def main():
         updated_search_list += i[0] + " OR "
 
     print(updated_search_list)
+    
+    mydb.close()
 
     #if updated_search_list != "":
         #scrap_twitter_routine(search = updated_search_list)

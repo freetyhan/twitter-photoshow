@@ -3,10 +3,17 @@ import censorship
 import glob
 import os
 import mysql.connector
+import shutil
+
 
 def main():
     #find the latest file from the folder called database
-    list_of_files = glob.glob('database/*') # * means all if need specific format then *.csv
+    directory = 'database'
+    
+    if not os.path.exists(directory):
+        os.makedirs(directory)        
+
+    list_of_files = glob.glob(directory + '/*') # * means all if need specific format then *.csv
     if list_of_files != []:
         
         print("START: database INSERT")
@@ -26,6 +33,8 @@ def main():
         mydb.commit()
         mydb.close()
         print("DONE: database INSERT")
+        
+        shutil.rmtree(directory, ignore_errors=True)        
         
         print("Start: censorship")
         censorship.main()

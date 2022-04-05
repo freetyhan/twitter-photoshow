@@ -11,6 +11,9 @@ def main():
     result = mycursor.fetchall()
     
     pf = ProfanityFilter()
+    #changing the formatting
+    result = [i[0] for i in result]   
+    print(result)
 
     pf.custom_profane_word_dictionaries = {'en': result}
 
@@ -24,6 +27,7 @@ def main():
 
     for i in result:
         tweet_id = i[0]
+        #print(i[1])
         if pf.is_clean(i[1]):                 
             mycursor.execute(f"UPDATE tweets SET censored = false WHERE id = '{tweet_id}'")                    
         else: 
