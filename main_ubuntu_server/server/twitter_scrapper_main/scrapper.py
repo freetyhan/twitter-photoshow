@@ -23,11 +23,10 @@ def scrap():
 
     mydb.close()
 
-    # if updated_search_list != "":
-    #scrap_twitter_routine(search = updated_search_list)
-    # else:
-
-    scrap_twitter_routine()
+    if updated_search_list != "":
+        scrap_twitter_routine(search = updated_search_list)
+    else:
+        scrap_twitter_routine()
 
 
 def main():
