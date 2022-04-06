@@ -1,0 +1,18 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/root/testing/img2c/src/img2c.cpp
+iostream
+-
+iomanip
+-
+string
+-
+FreeImage.h
+/root/testing/img2c/src/FreeImage.h
+

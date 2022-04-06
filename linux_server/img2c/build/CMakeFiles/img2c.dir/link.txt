@@ -1,0 +1,1 @@
+/usr/bin/c++    -rdynamic CMakeFiles/img2c.dir/src/img2c.cpp.o  -o img2c  -lfreeimage 
