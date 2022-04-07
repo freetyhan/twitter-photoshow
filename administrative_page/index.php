@@ -40,7 +40,7 @@
                 }
             }
 
-            $query = 'SELECT * FROM tweets WHERE censored = false AND deleted = false';
+            $query = 'SELECT * FROM tweets WHERE censored = false AND deleted = false AND label != "Non Food"';
             $result = mysqli_query($connect, $query); // this is placing tweets
             while($tweet = mysqli_fetch_assoc($result)){ 
                 echo '<div class="col mb-4 d-flex">';
