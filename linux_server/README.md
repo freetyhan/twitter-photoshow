@@ -1,0 +1,3 @@
+# Linux Cloud Server code
+ - `output_gen.sh` generates an image to be displayed on the DE1 VGA output, with 800x600 resolution with 16-bits color and in streams of pixel format. It places the Twitter image in the middle of the image, add color to fill any blank spaces then overlays the Twitter username and caption on the top-left corner. It requires ImageMagick, Noto fonts, and img2c to work correctly.
+ - `img2c` is based on the project xpol/img2c on GitHub. It generates a text file with all the pixel colors that makes up the image, in RGB565 format. We modified it to generate an output that can be parsed by DE1 Linux software easier.
