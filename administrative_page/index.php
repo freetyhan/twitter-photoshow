@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <title>administrative_page_CPEN391</title>
+    <title>Twitter Slideshow - Admin</title>
     <link rel="stylesheet" href="./assets/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.10.0/baguetteBox.min.css">
     <link rel="stylesheet" href="./assets/css/Lightbox-Gallery.css">
@@ -40,7 +40,7 @@
                 }
             }
 
-            $query = 'SELECT * FROM tweets WHERE censored = false AND deleted = false';
+            $query = 'SELECT * FROM tweets WHERE censored = false AND deleted = false AND label != "Non Food"';
             $result = mysqli_query($connect, $query); // this is placing tweets
             while($tweet = mysqli_fetch_assoc($result)){ 
                 echo '<div class="col mb-4 d-flex">';

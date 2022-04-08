@@ -1,0 +1,16 @@
+**/output_files/
+**/db/
+**/nios/
+**/.qsys_edit/
+**/eclipse/
+**/incremental_db/
+*.sof
+*.bak
+*.sopcinfo
+*.objdump
+*.elf
+*.o
+*.rbf 
+**/soc_system/
+**/sdram_pll_sim/
+**/pll86_sim/
