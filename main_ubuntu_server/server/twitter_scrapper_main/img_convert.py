@@ -25,7 +25,7 @@ def main():
 
     mycursor = mydb.cursor()
 
-    mycursor.execute("SELECT * FROM tweets WHERE deleted = 0 AND censored = 0")
+    mycursor.execute("SELECT * FROM tweets WHERE deleted = 0 AND censored = 0 AND label <> 'Non Food' ORDER BY created_at DESC")
 
     tweets = mycursor.fetchall()
 
@@ -73,7 +73,7 @@ def main():
 
     for i in tweets:
         image_url = i[-4]
-        image_name = i[0]
+        image_name = i[0].replace("/","")
         img_data = requests.get(image_url).content
         with open(directory + "/" + image_name, 'wb') as handler:
             handler.write(img_data)
@@ -83,12 +83,13 @@ def main():
     print("START: Conversion to embedded image")
     filenames = ""
     for i in tweets:
-        img_name = i[0]
-        img_username = ''
-        img_handle = ''
-        img_caption = ''
-        img_dishname = ''
+        img_name = i[0].replace("/"," ")
+        img_username = "''"
+        img_handle = "''"
+        img_caption = "''"
+        img_dishname = "''"
 
+  
         if config_show_username:
             img_username = shlex.quote(i[3])
         if config_show_twitter_name:
@@ -98,7 +99,7 @@ def main():
         if config_show_dish_name:
             img_dishname = shlex.quote(i[7])
         cmd = f"./script.sh {directory+ '/' +img_name} { directory_updated + '/' + img_name} {img_username} {img_handle} {img_caption} {img_dishname} '{config_colour}'"
-        #print(cmd)
+        print(cmd)
         filenames += f"{img_name}.c\r\n"
         # print(cmd)
 

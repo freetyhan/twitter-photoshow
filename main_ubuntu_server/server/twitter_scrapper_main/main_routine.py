@@ -5,7 +5,7 @@ def main():
     while (True):
         scrapper.main()
         print("SLEEPING")
-        time.sleep(120) #sleep every two minutes
+        time.sleep(60) #sleep every one minutes
 
 if __name__ == "__main__":
     main()

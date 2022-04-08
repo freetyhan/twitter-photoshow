@@ -24,7 +24,7 @@ def scrap():
     mydb.close()
 
     if updated_search_list != "":
-        scrap_twitter_routine(search = updated_search_list)
+        scrap_twitter_routine(search=updated_search_list)
     else:
         scrap_twitter_routine()
 
@@ -38,6 +38,7 @@ def main():
     print("START: database updates")
     database_to_MYSQL.main()
     print("DONE: database updates")
+    
 
     print("START: sending images to linux server")
     img_convert.main()

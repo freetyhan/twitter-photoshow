@@ -17,7 +17,7 @@ def download_img(test_directory='images'):
 
     mycursor = mydb.cursor()
 
-    sql = "SELECT id, photo FROM tweets"
+    sql = "SELECT id, photo FROM tweets WHERE deleted = 0 AND censored = 0"
     mycursor.execute(sql)
     myresult = mycursor.fetchall()
 
@@ -29,7 +29,7 @@ def download_img(test_directory='images'):
         image_url = i[1]
         img_data = requests.get(image_url).content
 
-        with open(f'{test_directory+"/fpp"}/{image_id}', 'wb') as handler:
+        with open(f'{test_directory+"/fpp"}/{image_id.replace("/","")}', 'wb') as handler:
             handler.write(img_data)
     mydb.close()
     print('DONE: downloaded all images in database')
@@ -99,10 +99,9 @@ def update_labels(label_dict, conditional, test_directory='images'):
 
     for i in label_dict:
         tweet_id = i
-        tweet_label = label_dict[i]
+        tweet_label = label_dict[i].replace("_"," ").title()
 
-        sql = f"UPDATE tweets SET label = '{tweet_label}' WHERE " + \
-            conditional.format(tweet_id=tweet_id)
+        sql = f"UPDATE tweets SET label = '{tweet_label}' WHERE " + conditional.format(tweet_id=tweet_id)
         print(sql)
         mycursor.execute(sql)
 
@@ -110,6 +109,7 @@ def update_labels(label_dict, conditional, test_directory='images'):
 
 
 def main():
+    remove_dir()
     download_img()
 
     label_dict = model_predict(
@@ -121,7 +121,7 @@ def main():
         model_loc='save0.6137499809265137acc', class_loc='multi_classes.json')
 
     update_labels(label_dict=label_dict,
-                  conditional="id = '{tweet_id}' AND label <> 'non_food' ")
+                  conditional="id = '{tweet_id}' AND label <> 'Non Food' ")
 
     remove_dir()
     print("DONE: Labeling all images!")

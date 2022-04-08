@@ -121,7 +121,7 @@ def scrap_twitter_routine(search = "#tastyindianbistro",previous_search_time = "
         
         formatted_tweets = []
         for tweet in unformatted_tweets:            
-            for photo in tweet['photos']:
+            for photo in tweet['photos']:                
                 name = strip_url(strip_emoji(tweet['name']))
                 caption = strip_url(strip_emoji(tweet['tweet']))
                 formatted_tweets.append(create_tweet(tweet['id'],tweet['created_at'][0:19],name,tweet["username"],caption,photo)) 
