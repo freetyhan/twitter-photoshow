@@ -5,5 +5,5 @@ It consists of the following parts, and the code used to implement the correspon
  - Hardware (FPGA)
  - DE1-SoC HPS (linux_hps)
  - Cloud Server Machine Learning (machine_learning)
- - Cloud Server Administrative Webpage (administrative_page_
+ - Cloud Server Administrative Webpage (administrative_page)
  - Cloud Server image manipulation, database, Twitter scraping, auto updating (main_ubuntu_server)
