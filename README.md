@@ -7,3 +7,5 @@ It consists of the following parts, and the folder that contains code used to im
  - Cloud Server Machine Learning (machine_learning) - created by Akshat Raj
  - Cloud Server Administrative Webpage, PHP development (administrative_page) - created by Han Cho
  - Cloud Server image manipulation, database, Twitter scraping, auto updating (main_ubuntu_server) - created by Akshat Raj except image manipulation, which is done by Fei Kuan.
+
+This project was done as part of 2021W CPEN391 final project.
